@@ -1,0 +1,2 @@
+# Payment-Service-API
+This project involving designing Payment Processing APIs for E Commerce websites. It utilizes the use of third party APIs such as Stripe and JWT to aid in the whole process. This front end for the platform was built using React.js while the backend for the platform was built using Node JS and Express JS while the database is a NoSQL database(MongoDB). This API allows the transfer of funds between one account to another on an ECommerce platform
