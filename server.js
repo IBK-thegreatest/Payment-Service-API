@@ -3,10 +3,11 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes.js");
-const authRoutes = require("./routes/auth.js")
-const productRoutes = require("./routes/productRoutes")
-const orderRoutes = require("./routes/orderRoutes")
-const cartRoutes = require("./routes/cartRoutes")
+const authRoutes = require("./routes/auth.js");
+const productRoutes = require("./routes/productRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+const cartRoutes = require("./routes/cartRoutes");
+const stripePayment = require("./routes/stripe");
 
 dotenv.config();
 
@@ -22,12 +23,14 @@ mongoose.connect(
     }
 );
 
+app.use(cors());
 app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/auth/", authRoutes);
 app.use("/api/products/", productRoutes);
 app.use("/api/orders/", orderRoutes);
 app.use("/api/carts/", cartRoutes);
+app.use("/api/stripe/payment", stripePayment);
 
 
 const port = process.env.PORT || 3000
